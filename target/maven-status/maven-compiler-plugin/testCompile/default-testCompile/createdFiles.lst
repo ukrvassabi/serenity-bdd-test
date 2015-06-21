@@ -1,0 +1,3 @@
+com\test\serenity\runTests\GoogleSearchTests.class
+com\test\serenity\stepDefinitions\GoogleSearchStepDefinitions.class
+com\test\serenity\steps\GoogleSearchSteps.class

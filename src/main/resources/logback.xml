@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+		<resetJUL>true</resetJUL>
+	</contextListener>
+	<appender name="A1" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%-5p] %d [%t] [%c:%L] - %m%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.apache.http" level="ERROR" />
+	<logger name="com.gargoylesoftware.htmlunit" level="ERROR" />
+	<logger name="org.springframework" level="ERROR" />
+	<logger name="com.googlecode.gmail4j.javamail.ImapGmailConnection" level="ERROR" />
+	<logger name="org.apache.commons.configuration" level="ERROR" />
+	<logger name="org.mortbay" level="ERROR" />
+	<root level="${app.log.level}">
+		<appender-ref ref="A1" />
+	</root>
+</configuration>
