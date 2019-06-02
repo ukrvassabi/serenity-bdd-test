@@ -1,6 +1,6 @@
 pipeline:
   verify:
-    image: openjdk:8u212-jdk
+    image: maven:3.6.1-jdk-8
     commands:
       - mvn clean verify
 
@@ -11,8 +11,6 @@ services:
 
   chrome:
     image: selenium/node-chrome:3.141.59-oxygen
-#    volumes:
-#      - /dev/shm:/dev/shm
     depends_on:
       - selenium-hub
     environment:
