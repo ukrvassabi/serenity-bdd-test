@@ -10,9 +10,9 @@ services:
     container_name: selenium-hub
 
   chrome:
-    image: selenium/node-chrome-debug:3.141.59-oxygen
-    volumes:
-      - /dev/shm:/dev/shm
+    image: selenium/node-chrome:3.141.59-oxygen
+#    volumes:
+#      - /dev/shm:/dev/shm
     depends_on:
       - selenium-hub
     environment:
