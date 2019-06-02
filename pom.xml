@@ -11,7 +11,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <aspectj.version>1.9.4</aspectj.version>
-    <webdriver.base.url></webdriver.base.url>
+    <webdriver.base.url>http://google.com</webdriver.base.url>
+    <webdriver.remote.url>http://localhost:4444/wd/hub</webdriver.remote.url>
   </properties>
   <dependencies>
     <dependency>
@@ -136,6 +137,7 @@
           <systemProperties>
             <!-- you can pass as parameter webdriver type via Jenkins or TeamCity -->
             <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+            <webdriver.remote.url>${webdriver.remote.url}</webdriver.remote.url>
           </systemProperties>
         </configuration>
         <executions>

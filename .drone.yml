@@ -2,7 +2,7 @@ pipeline:
   verify:
     image: maven:3.6.1-jdk-8
     commands:
-      - mvn clean verify
+      - mvn clean verify -Dwebdriver.remote.url=http://selenium-hub:4444/wd/hub
 
 services:
   selenium-hub:
