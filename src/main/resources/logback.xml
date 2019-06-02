@@ -14,6 +14,8 @@
 	<logger name="com.googlecode.gmail4j.javamail.ImapGmailConnection" level="ERROR" />
 	<logger name="org.apache.commons.configuration" level="ERROR" />
 	<logger name="org.mortbay" level="ERROR" />
+	<logger name="net.thucydides" level="INFO" />
+	<logger name="net.serenitybdd" level="INFO" />
 	<root level="${app.log.level}">
 		<appender-ref ref="A1" />
 	</root>

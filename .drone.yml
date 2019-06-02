@@ -1,0 +1,20 @@
+pipeline:
+  verify:
+    image: openjdk:8u212-jdk
+    commands:
+      - mvn clean verify
+
+services:
+  selenium-hub:
+    image: selenium/hub:3.141.59-oxygen
+    container_name: selenium-hub
+
+  chrome:
+    image: selenium/node-chrome-debug:3.141.59-oxygen
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444

@@ -16,8 +16,3 @@ Feature: Google search
       | search_request | search_result                                          |
       | Serenity BDD   | Serenity BDD - Automated Acceptance Testing with Style |
       | Cucumber       | Cucumber                                               |
-
-
-
-
-

@@ -12,17 +12,17 @@ public class GoogleSearchStepDefinitions {
   GoogleSearchSteps googleSearchSteps;
 
   @Given("I want to search in Google")
-  public void iWantToSearchInGoogle() throws Throwable {
+  public void iWantToSearchInGoogle() {
     googleSearchSteps.openGoogleSearchPage();
   }
 
   @When("I search for '(.*)'")
-  public void iSearchFor(String searchRequest) throws Throwable {
+  public void iSearchFor(String searchRequest) {
     googleSearchSteps.searchFor(searchRequest);
   }
 
   @Then("I should see link to '(.*)'")
-  public void iShouldSeeLinkTo(String searchResult) throws Throwable {
+  public void iShouldSeeLinkTo(String searchResult) {
     googleSearchSteps.verifyResult(searchResult);
   }
 }

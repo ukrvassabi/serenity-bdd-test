@@ -1,2 +1,6 @@
 .idea
+.allure
 target
+
+*.iml
+.DS_Store
