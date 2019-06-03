@@ -2,12 +2,13 @@ package com.test.serenity.steps;
 
 import com.test.serenity.GoogleResultsPage;
 import com.test.serenity.GoogleSearchPage;
+import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
 import java.util.List;
 
-public class GoogleSearchSteps {
+public class GoogleSearchSteps extends UIInteractionSteps {
 
   GoogleSearchPage searchPage;
   GoogleResultsPage resultsPage;
