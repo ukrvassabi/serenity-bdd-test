@@ -11,14 +11,18 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <aspectj.version>1.9.4</aspectj.version>
+    <serenity.version>2.0.50</serenity.version>
+    <cucumber.version>4.2.0</cucumber.version>
     <webdriver.base.url>http://google.com</webdriver.base.url>
     <webdriver.remote.url>http://localhost:4444/wd/hub</webdriver.remote.url>
+    <tags></tags>
+    <parallel.tests>4</parallel.tests>
   </properties>
   <dependencies>
     <dependency>
       <groupId>net.serenity-bdd</groupId>
       <artifactId>serenity-core</artifactId>
-      <version>2.0.50</version>
+      <version>${serenity.version}</version>
       <exclusions>
         <exclusion>
           <groupId>io.cucumber</groupId>
@@ -34,23 +38,45 @@
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
-      <version>4.2.0</version>
+      <version>${cucumber.version}</version>
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
-      <version>4.2.0</version>
+      <version>${cucumber.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.serenity-bdd</groupId>
+      <artifactId>serenity-junit</artifactId>
+      <version>${serenity.version}</version>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>3.141.59</version>
     </dependency>
+    <!-- Asserts -->
     <dependency>
-      <groupId>io.qameta.allure</groupId>
-      <artifactId>allure-cucumber4-jvm</artifactId>
-      <version>2.12.1</version>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
     </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.12.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-all</artifactId>
+      <version>1.3</version>
+    </dependency>
+<!-- Allure configuration -->
+<!--    <dependency>-->
+<!--      <groupId>io.qameta.allure</groupId>-->
+<!--      <artifactId>allure-cucumber4-jvm</artifactId>-->
+<!--      <version>2.12.1</version>-->
+<!--    </dependency>-->
     <!-- Logging with SLF4J & LogBack -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -105,12 +131,12 @@
 <!--      <plugin>-->
 <!--        <groupId>net.serenity-bdd.maven.plugins</groupId>-->
 <!--        <artifactId>serenity-maven-plugin</artifactId>-->
-<!--        <version>2.0.50</version>-->
+<!--        <version>${serenity.version}</version>-->
 <!--        <dependencies>-->
 <!--          <dependency>-->
 <!--            <groupId>net.serenity-bdd</groupId>-->
 <!--            <artifactId>serenity-core</artifactId>-->
-<!--            <version>2.0.50</version>-->
+<!--            <version>${serenity.version}</version>-->
 <!--          </dependency>-->
 <!--        </dependencies>-->
 <!--        <executions>-->
@@ -139,6 +165,9 @@
             <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
             <webdriver.remote.url>${webdriver.remote.url}</webdriver.remote.url>
           </systemProperties>
+          <parallel>classes</parallel>
+          <threadCount>${parallel.tests}</threadCount>
+          <forkCount>${parallel.tests}</forkCount>
         </configuration>
         <executions>
           <execution>
@@ -155,7 +184,6 @@
 <!--        <artifactId>maven-surefire-plugin</artifactId>-->
 <!--        <version>2.22.1</version>-->
 <!--        <configuration>-->
-<!--          &lt;!&ndash;          <skip>true</skip>&ndash;&gt;-->
 <!--          <includes>-->
 <!--            &lt;!&ndash; this will allow us run tests from package during test running &ndash;&gt;-->
 <!--            <include>**/*Test.java</include>-->
